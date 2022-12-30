@@ -1,32 +1,31 @@
 import { connect } from "react-redux";
 
-
 //action
 function incerement(number) {
   return {
-    type: 'INCEREMENT',
-    num:number,
-   }
+    type: "INCEREMENT",
+    num: number,
+  };
 }
 
 function decerement(number) {
   return {
-    type: 'DECEREMENT',
-    num:number,
-   }
+    type: "DECEREMENT",
+    num: number,
+  };
 }
 //end of action
 
 function mapStateToProps(state) {
   return {
-    count:state.count
-  }
+    count: state.count,
+  };
 }
 
 const mapDispatchToProps = {
   incerement,
-  decerement
-}
+  decerement,
+};
 
 function App(props) {
   function handleIncerement() {
@@ -41,11 +40,21 @@ function App(props) {
     <div>
       <h1 className="m-2 text-center">{props.count}</h1>
       <div className="text-center">
-        <button onClick={handleIncerement} className="btn btn-lg btn-primary m-2">+</button>
-        <button onClick={handleDecerement} className="btn btn-lg btn-primary m-2">-</button>
+        <button
+          onClick={handleIncerement}
+          className="btn btn-lg btn-primary m-2"
+        >
+          +
+        </button>
+        <button
+          onClick={handleDecerement}
+          className="btn btn-lg btn-primary m-2"
+        >
+          -
+        </button>
       </div>
     </div>
   );
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
